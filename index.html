@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rakshitha S — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0F16;
+    --bg-raised:#131923;
+    --ink:#EDEFF3;
+    --ink-soft:#9AA3B2;
+    --ink-faint:#5E6675;
+    --amber:#E3A25B;
+    --rule:#232B38;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',Arial,sans-serif;
+    line-height:1.6;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:var(--amber);text-decoration:none;}
+  a:hover{opacity:.8;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 28px;}
+  section{padding:64px 0;}
+  .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--ink-faint);
+    margin-bottom:10px;
+  }
+  h2.title{font-size:clamp(26px,4vw,34px);font-weight:700;margin:0 0 34px;}
+
+  /* Hero */
+  header.hero{padding:100px 0 70px;border-bottom:1px solid var(--rule);}
+  header.hero .label{margin-bottom:16px;}
+  header.hero h1{font-size:clamp(34px,6vw,48px);font-weight:700;margin:0 0 14px;}
+  header.hero p.tag{font-size:17px;color:var(--ink-soft);max-width:520px;margin:0 0 28px;}
+  header.hero .links{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;}
+  header.hero .links a{border-bottom:1px solid var(--amber);}
+
+  /* Method */
+  .step{
+    display:grid;
+    grid-template-columns:56px 1fr;
+    gap:8px 20px;
+    padding:26px 0;
+    border-top:1px solid var(--rule);
+  }
+  .step:last-child{border-bottom:1px solid var(--rule);}
+  .step-num{font-family:'IBM Plex Mono',monospace;color:var(--amber);font-size:15px;padding-top:2px;}
+  .step h3{font-size:18px;margin:0 0 6px;font-weight:600;}
+  .step p{margin:0;color:var(--ink-soft);font-size:15px;}
+
+  /* Compliance strip */
+  .compliance{
+    background:var(--bg-raised);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:30px 32px;
+  }
+  .compliance p.intro{color:var(--ink-soft);margin:0 0 20px;font-size:15px;}
+  .pill-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .pill{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--amber);
+    border:1px solid var(--amber);
+    border-radius:999px;
+    padding:5px 14px;
+  }
+
+  /* Experience */
+  .role{padding:28px 0;border-top:1px solid var(--rule);}
+  .role:last-child{border-bottom:1px solid var(--rule);}
+  .role-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px;}
+  .role-head h3{font-size:18px;margin:0;font-weight:600;}
+  .role-head .dates{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-faint);}
+  .role .org{color:var(--ink-soft);font-size:14px;margin:0 0 12px;}
+  .role ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:15px;}
+  .role li{margin-bottom:6px;}
+
+  /* Projects */
+  .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
+  .project-card{
+    background:var(--bg-raised);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:24px;
+  }
+  .project-card h3{font-size:16px;margin:0 0 10px;font-weight:600;}
+  .project-card p{font-size:14px;color:var(--ink-soft);margin:0 0 16px;}
+  .project-card .pill{font-size:12px;padding:4px 12px;}
+
+  /* Skills */
+  .skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 32px;}
+  .skill-cat h3{font-size:13px;font-family:'IBM Plex Mono',monospace;color:var(--ink-faint);margin:0 0 8px;font-weight:400;}
+  .skill-cat p{font-size:14px;color:var(--ink-soft);margin:0;}
+
+  /* Education */
+  .edu h3{font-size:17px;margin:0 0 4px;font-weight:600;}
+  .edu p{color:var(--ink-soft);font-size:14px;margin:0;}
+
+  .video-embed{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    border-radius:6px;
+    overflow:hidden;
+    border:1px solid var(--rule);
+    background:var(--bg-raised);
+    margin-bottom:16px;
+  }
+  .video-embed iframe{
+    position:absolute;
+    top:0;left:0;width:100%;height:100%;border:0;
+  }
+  #video p.caption{color:var(--ink-soft);font-size:14px;margin:0;}
+
+  footer{padding:60px 0 70px;border-top:1px solid var(--rule);text-align:center;}
+  footer p{color:var(--ink-soft);font-size:15px;margin:0;}
+
+  @media (max-width:600px){
+    .skill-grid{grid-template-columns:1fr;}
+    .role-head{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="label">Bangalore, India</p>
+    <h1>Rakshitha S</h1>
+    <p class="tag">Software engineer building Qt/C++ applications for medical navigation systems — where a bug isn't just a bug, it's a deviation that needs a root cause, a fix, and a closed change control.</p>
+    <div class="links">
+      <a href="mailto:rakshitharachhu07@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/rakshitha-s-0b90941a0/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Raksh-7" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="method">
+  <div class="wrap">
+    <p class="label">Method</p>
+    <h2 class="title">How I work in a regulated codebase</h2>
+
+    <div class="step">
+      <div class="step-num">01</div>
+      <div><h3>Reproduce and isolate</h3><p>Find the smallest case that shows the fault before touching any code or opening a change record.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div><h3>Trace it to the root cause</h3><p>Step through logic and runtime behavior in Qt/C++ until the symptom points to the actual fault — not just the closest workaround.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div><h3>Fix it under change control</h3><p>Raise the change control, apply the smallest fix that resolves it, and keep the documentation trail intact as I go.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div><h3>Verify against the standard, then close</h3><p>Re-test under the original failing condition and confirm the fix holds up against IEC 62304 and EU MDR expectations before closing the record.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="compliance">
+  <div class="wrap">
+    <p class="label">Quality &amp; Compliance</p>
+    <h2 class="title">The other half of medical software</h2>
+    <div class="compliance">
+      <p class="intro">Alongside development, I work inside the quality system that regulated medical software runs on — initiating and closing change controls, and supporting complaint handling, CAPA, and NCPR under IEC 62304 and EU MDR requirements.</p>
+      <div class="pill-row">
+        <span class="pill">IEC 62304</span>
+        <span class="pill">EU MDR</span>
+        <span class="pill">Change Control</span>
+        <span class="pill">CAPA</span>
+        <span class="pill">NCPR</span>
+        <span class="pill">CSAT</span>
+        <span class="pill">ISO Audit Support</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="label">Work</p>
+    <h2 class="title">Experience</h2>
+
+    <div class="role">
+      <div class="role-head"><h3>Software Engineer</h3><span class="dates">Aug 2022 — Present</span></div>
+      <p class="org">HRS Navigation Pvt. Ltd.</p>
+      <ul>
+        <li>Redesigned UI modules in Qt, cutting task execution time by 20%.</li>
+        <li>Resolved a critical data-loss fault during power failures, improving system stability by 15%.</li>
+        <li>Used MITK, Mango, and 3D Slicer for medical imaging visualization and navigation support.</li>
+        <li>Coordinated release cycles across R&amp;D, hardware, and procurement teams.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head"><h3>Software Engineer Intern</h3><span class="dates">May 2022 — Aug 2022</span></div>
+      <p class="org">HRS Navigation Pvt. Ltd.</p>
+      <ul>
+        <li>Built responsive Qt UI components to support operational workflows.</li>
+        <li>Assisted in improving real-time system performance through debugging.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="exploring">
+  <div class="wrap">
+    <p class="label">Currently</p>
+    <h2 class="title">What I'm learning right now</h2>
+    <div class="compliance">
+      <p class="intro">Staying core to C++ and Qt, while picking up reverse engineering on the side — understanding how compiled binaries and legacy systems actually behave. I've also started using AI as part of my regular workflow, for development, debugging, planning, and analysis tasks.</p>
+      <div class="pill-row">
+        <span class="pill">Reverse Engineering</span>
+        <span class="pill">Binary Analysis</span>
+        <span class="pill">AI-Assisted Workflow</span>
+        <span class="pill">C++ · Qt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="label">Toolkit</p>
+    <h2 class="title">Skills</h2>
+    <div class="skill-grid">
+      <div class="skill-cat"><h3>Languages</h3><p>C++</p></div>
+      <div class="skill-cat"><h3>Frameworks</h3><p>Qt</p></div>
+      <div class="skill-cat"><h3>Tools &amp; Platforms</h3><p>MITK, 3D Slicer, Mango, Visual Studio, Git</p></div>
+      <div class="skill-cat"><h3>Standards &amp; Practices</h3><p>IEC 62304, EU MDR, Change Management, Documentation</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <p class="label">Education</p>
+    <h2 class="title">Education</h2>
+    <div class="edu">
+      <h3>B.E. Computer Science &amp; Engineering</h3>
+      <p>ACS College of Engineering, Bangalore · 2018–2022 · CGPA 7.73/10</p>
+    </div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap">
+    <p class="label">Off the clock</p>
+    <h2 class="title">An installation, built with my husband</h2>
+    <p class="tag" style="margin-bottom:20px;">Something we designed and built together, start to finish.</p>
+    <a href="https://www.youtube.com/watch?v=rH2Kq2BIGVs" target="_blank" rel="noopener" style="border-bottom:1px solid var(--amber);font-size:15px;">Watch it on YouTube</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Get in touch via <a href="https://www.linkedin.com/in/rakshitha-s-0b90941a0/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
