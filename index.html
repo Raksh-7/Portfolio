@@ -101,7 +101,8 @@
   .project-card .pill{font-size:12px;padding:4px 12px;}
 
   /* Skills */
-  .skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 32px;}
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 32px;}
+  .skill-cat.wide{grid-column:1 / -1;}
   .skill-cat h3{font-size:13px;font-family:'IBM Plex Mono',monospace;color:var(--ink-faint);margin:0 0 8px;font-weight:400;}
   .skill-cat p{font-size:14px;color:var(--ink-soft);margin:0;}
 
@@ -125,12 +126,19 @@
   }
   #video p.caption{color:var(--ink-soft);font-size:14px;margin:0;}
 
+  /* Impact stats */
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;}
+  .stat{background:var(--bg-raised);padding:26px 18px;text-align:center;}
+  .stat .num{font-family:'IBM Plex Mono',monospace;font-size:clamp(22px,4vw,30px);color:var(--amber);font-weight:500;display:block;margin-bottom:6px;}
+  .stat .lbl{font-size:13px;color:var(--ink-soft);}
+
   footer{padding:60px 0 70px;border-top:1px solid var(--rule);text-align:center;}
   footer p{color:var(--ink-soft);font-size:15px;margin:0;}
 
   @media (max-width:600px){
     .skill-grid{grid-template-columns:1fr;}
     .role-head{flex-direction:column;}
+    .stat-grid{grid-template-columns:1fr 1fr;}
   }
 </style>
 </head>
@@ -140,7 +148,7 @@
   <div class="wrap">
     <p class="label">Bangalore, India</p>
     <h1>Rakshitha S</h1>
-    <p class="tag">Software engineer building Qt/C++ applications for medical navigation systems — where a bug isn't just a bug, it's a deviation that needs a root cause, a fix, and a closed change control.</p>
+    <p class="tag">Software engineer building Qt/C++ and QML applications for medical navigation systems — where a bug isn't just a bug, it's a deviation that needs a root cause, a fix, and a closed change control.</p>
     <div class="links">
       <a href="mailto:rakshitharachhu07@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/rakshitha-s-0b90941a0/" target="_blank" rel="noopener">LinkedIn</a>
@@ -148,6 +156,17 @@
     </div>
   </div>
 </header>
+
+<section id="impact">
+  <div class="wrap">
+    <div class="stat-grid">
+      <div class="stat"><span class="num">80+</span><span class="lbl">production screens shipped</span></div>
+      <div class="stat"><span class="num">400+</span><span class="lbl">defects root-caused &amp; resolved</span></div>
+      <div class="stat"><span class="num">150+</span><span class="lbl">customer deployment sites</span></div>
+      <div class="stat"><span class="num">3</span><span class="lbl">shipped product releases</span></div>
+    </div>
+  </div>
+</section>
 
 <section id="method">
   <div class="wrap">
@@ -160,7 +179,7 @@
     </div>
     <div class="step">
       <div class="step-num">02</div>
-      <div><h3>Trace it to the root cause</h3><p>Step through logic and runtime behavior in Qt/C++ until the symptom points to the actual fault — not just the closest workaround.</p></div>
+      <div><h3>Trace it to the root cause</h3><p>Step through logic, threads, and rendering paths in Qt/C++ until the symptom points to the actual fault — race condition, deadlock, or otherwise — not just the closest workaround.</p></div>
     </div>
     <div class="step">
       <div class="step-num">03</div>
@@ -201,10 +220,14 @@
       <div class="role-head"><h3>Software Engineer</h3><span class="dates">Aug 2022 — Present</span></div>
       <p class="org">HRS Navigation Pvt. Ltd.</p>
       <ul>
-        <li>Redesigned UI modules in Qt, cutting task execution time by 20%.</li>
-        <li>Resolved a critical data-loss fault during power failures, improving system stability by 15%.</li>
-        <li>Used MITK, Mango, and 3D Slicer for medical imaging visualization and navigation support.</li>
-        <li>Coordinated release cycles across R&amp;D, hardware, and procurement teams.</li>
+        <li>Designed and delivered 80+ production screens, reusable widgets, custom controls, and docking layouts across 3 Qt/C++ medical navigation products, cutting task execution time by 20%.</li>
+        <li>Partnered with system and hardware engineers to translate system-level requirements into working C++/Qt software, validating implementation through joint design and test reviews.</li>
+        <li>Root-caused and resolved 400+ production defects, including 100+ critical multithreading, race-condition, deadlock, and rendering issues.</li>
+        <li>Designed a fault-tolerant recovery mechanism preventing data loss during power failures, improving application stability by 15%.</li>
+        <li>Reviewed 50+ peer code changes to enforce coding standards and prevent regressions ahead of release.</li>
+        <li>Building working proficiency in QML alongside 3+ years of Qt Widgets expertise for next-generation UI development.</li>
+        <li>Integrated and customized MITK components (Level Window, Segmentation, Threshold, Registration, Rendering, Measurement), leveraging Mango and 3D Slicer.</li>
+        <li>Applied IEC 62304-compliant practices and delivered validation, deployment, and post-release support across 150+ customer sites.</li>
       </ul>
     </div>
 
@@ -212,8 +235,8 @@
       <div class="role-head"><h3>Software Engineer Intern</h3><span class="dates">May 2022 — Aug 2022</span></div>
       <p class="org">HRS Navigation Pvt. Ltd.</p>
       <ul>
-        <li>Built responsive Qt UI components to support operational workflows.</li>
-        <li>Assisted in improving real-time system performance through debugging.</li>
+        <li>Built responsive Qt Widgets UI components to improve usability and workflow efficiency for real-time desktop applications.</li>
+        <li>Collaborated with engineering, clinical, and testing teams on debugging, feature builds, and quality improvements.</li>
       </ul>
     </div>
   </div>
@@ -229,7 +252,6 @@
         <span class="pill">Reverse Engineering</span>
         <span class="pill">Binary Analysis</span>
         <span class="pill">AI-Assisted Workflow</span>
-        <span class="pill">C++ · Qt</span>
       </div>
     </div>
   </div>
@@ -240,10 +262,12 @@
     <p class="label">Toolkit</p>
     <h2 class="title">Skills</h2>
     <div class="skill-grid">
-      <div class="skill-cat"><h3>Languages</h3><p>C++</p></div>
-      <div class="skill-cat"><h3>Frameworks</h3><p>Qt</p></div>
-      <div class="skill-cat"><h3>Tools &amp; Platforms</h3><p>MITK, 3D Slicer, Mango, Visual Studio, Git</p></div>
-      <div class="skill-cat"><h3>Standards &amp; Practices</h3><p>IEC 62304, EU MDR, Change Management, Documentation</p></div>
+      <div class="skill-cat"><h3>Languages</h3><p>Modern C++ (C++11/14)</p></div>
+      <div class="skill-cat"><h3>Qt Technologies</h3><p>Qt Widgets, QML (working proficiency), Signals &amp; Slots</p></div>
+      <div class="skill-cat wide"><h3>Software Engineering</h3><p>OOP/OOD, Requirements Analysis &amp; Traceability, Root Cause Analysis, Multithreading &amp; Thread Synchronization, Race Condition &amp; Deadlock Resolution, Rendering Debugging, Peer Code Review &amp; Mentoring, Customer Satisfcation, CAPA & NCPR Handling</p></div>
+      <div class="skill-cat"><h3>Medical Imaging</h3><p>MITK, 3D Slicer, Mango</p></div>
+      <div class="skill-cat"><h3>Tools &amp; Platforms</h3><p>Visual Studio, Git</p></div>
+      <div class="skill-cat"><h3>Standards &amp; Practices</h3><p>IEC 62304, EU MDR, Change Management, Technical Documentation</p></div>
     </div>
   </div>
 </section>
@@ -256,15 +280,6 @@
       <h3>B.E. Computer Science &amp; Engineering</h3>
       <p>ACS College of Engineering, Bangalore · 2018–2022 · CGPA 7.73/10</p>
     </div>
-  </div>
-</section>
-
-<section id="video">
-  <div class="wrap">
-    <p class="label">Off the clock</p>
-    <h2 class="title">An installation, built with my husband</h2>
-    <p class="tag" style="margin-bottom:20px;">Something we designed and built together, start to finish.</p>
-    <a href="https://www.youtube.com/watch?v=rH2Kq2BIGVs" target="_blank" rel="noopener" style="border-bottom:1px solid var(--amber);font-size:15px;">Watch it on YouTube</a>
   </div>
 </section>
 
